@@ -11,7 +11,7 @@ class SeatsSelection extends Component {
       
     };
   }  
-  
+
   handleSeatSelection = (index) => {
     const { selectedDirection, selectedDate, seats } = this.props;
   
@@ -34,44 +34,44 @@ class SeatsSelection extends Component {
         <p>SeatsSelection Component</p>        
         <Form>
           <Row>
-            <Col>
+            <Col xs={3} lg={1} className='mt-1'>
               <Form.Label>Direction</Form.Label>
             </Col>
-            <Col>
+            <Col xs={9} lg={4} className='mt-1'>
               <Form.Select>
                 <option>{selectedDirection}</option>
               </Form.Select>
             </Col>
-            <Col>
+            <Col xs={3} lg={1} className='mt-1'>
               <Form.Label>Date</Form.Label>
             </Col>
-            <Col>
+            <Col xs={9} lg={4} className='mt-1'>
             <Form.Control
               type='date'
               value={selectedDate}                            
             ></Form.Control>
             </Col>
-            <Col>            
-              <Button disabled>Seach tickets</Button>
+            <Col xs={12} lg={2} className='mt-1'>            
+              <Button disabled className='w-100'>Seach tickets</Button>
             </Col>
           </Row>
         </Form>
         {/* <p>Selected direction: {selectedDirection}, selected date: {selectedDate}, price: {ticketPrice} euro</p> */}
         <Container className="w-100 mt-3">
-      <p>SeatsSelection Component</p>
-      <div className="mt-5">
-      {seats.length > 0 ? (
-  <div className="d-flex flex-wrap justify-content-center">
-    {seats.map((isOccupied, index) => (
-      <Button
-        key={index}
-        className="custom-button mx-1 my-1"
-        variant={isOccupied ? "danger" : "success"}
-        disabled={isOccupied} // Заблокировать, если место занято
-        onClick={() => this.handleSeatSelection(index)} // Обработчик выбора
-      >
-        {index + 1}
-      </Button>
+          <p>SeatsSelection Component</p>
+          <div className="mt-5">
+          {seats.length > 0 ? (
+            <div className="d-flex flex-wrap justify-content-center">
+            {seats.map((isOccupied, index) => (
+              <Button
+                key={index}
+                className="custom-button mx-1 my-1"
+                variant={isOccupied ? "danger" : "success"}
+                disabled={isOccupied} // Заблокировать, если место занято
+                onClick={() => this.handleSeatSelection(index)} // Обработчик выбора
+              >
+              {index + 1}
+              </Button>
     ))}
   </div>
 ) : (
